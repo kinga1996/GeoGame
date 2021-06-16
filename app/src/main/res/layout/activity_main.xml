@@ -1,18 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/question"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textAlignment="center"
+        android:text="Hello Welcome in GeoQuiz, press 'next' to start The game"
+        android:textSize="20dp"
+        android:gravity="center_horizontal" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:textAlignment="center" android:gravity="center_horizontal" >
+        <Button
+            android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Button1" android:onClick="Validate1"/>
+        <Button
+            android:id="@+id/button2" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Button2" android:onClick="Validate2"/>
+        <Button
+            android:id="@+id/button3" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Button3" android:onClick="Validate3"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:textAlignment="center" android:gravity="center_horizontal" >
+        <Button android:id="@+id/startb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="Start"
+            android:onClick="start"/>
+        <Button android:id="@+id/nextb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="Next"
+            android:onClick="next"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/counter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="COUNT to 0 "
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+
+
+</LinearLayout>
