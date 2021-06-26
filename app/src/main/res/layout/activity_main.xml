@@ -3,7 +3,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:textAlignment="center" android:gravity="center_horizontal"
+        android:paddingTop="10dp" android:paddingBottom="10dp">
+        <Button android:id="@+id/nextb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="Next"
+            android:onClick="next" android:layout_margin="2dp"/>
+        <Button android:id="@+id/backb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="Back"
+            android:onClick="back" android:layout_margin="2dp"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/question"
@@ -11,44 +26,35 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:text="Hello Welcome in GeoQuiz, press 'next' to start the game"
-        android:textSize="20dp"
+        android:textSize="35dp"
         android:gravity="center_horizontal"
         android:padding="20dp"/>
 
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:textAlignment="center" android:gravity="center_horizontal" >
+        android:textAlignment="center" android:gravity="center_horizontal"
+        android:paddingTop="30dp" android:paddingBottom="10dp">
         <Button
             android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="Button1" android:onClick="Validate1"/>
+            android:text="Button1" android:onClick="Validate1"
+            android:textSize="25dp" android:layout_margin="3dp" android:width="400px"/>
         <Button
             android:id="@+id/button2" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="Button2" android:onClick="Validate2"/>
-        <Button
-            android:id="@+id/button3" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="Button3" android:onClick="Validate3"/>
+            android:text="Button2" android:onClick="Validate2"
+            android:textSize="25dp" android:layout_margin="3dp" android:width="400px"/>
     </LinearLayout>
 
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:textAlignment="center" android:gravity="center_horizontal" >
-        <Button android:id="@+id/startb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:text="Start"
-            android:onClick="start"/>
-        <Button android:id="@+id/nextb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:text="Next"
-            android:onClick="next"/>
+        android:textAlignment="center" android:gravity="center_horizontal"
+        android:paddingBottom="30dp">
+        <Button
+            android:id="@+id/button3" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Button3" android:onClick="Validate3"
+            android:textSize="25dp" android:layout_margin="3dp" android:width="400px"/>
+        <Button
+            android:id="@+id/button4" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Button4" android:onClick="Validate4"
+            android:textSize="25dp" android:layout_margin="3dp" android:width="400px"/>
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/counter"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="COUNT to 0 "
-        android:textSize="30dp"
-        android:textAlignment="center"
-        android:gravity="center_horizontal" />
 
 
 </LinearLayout>

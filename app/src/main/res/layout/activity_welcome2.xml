@@ -8,23 +8,23 @@
     <TextView
         android:layout_width="match_parent" android:layout_height="120dp"
         android:layout_margin="10dp" android:paddingTop="40dp"
-        android:textAlignment="center" android:textSize="32dp"
+        android:textAlignment="center" android:textSize="35dp"
         android:text="Welcome to GeoGame! "
         tools:ignore="RtlCompat" />
 
     <Button
         android:layout_width="wrap_content" android:layout_height="wrap_content"
         android:layout_gravity="center" android:layout_margin="30dp" android:padding="15dp"
-        android:text="Play game" android:onClick="play" />
+        android:text="Play game" android:onClick="play" android:textSize="25dp"/>
 
     <Button
         android:layout_width="wrap_content" android:layout_height="wrap_content"
         android:layout_gravity="center" android:layout_margin="30dp" android:padding="15dp"
-        android:text="Parameters" android:onClick="parameters" />
+        android:text="Parameters" android:onClick="parameters" android:textSize="25dp"/>
 
     <Button
     android:layout_width="wrap_content" android:layout_height="wrap_content"
     android:layout_gravity="center" android:layout_margin="30dp" android:padding="15dp"
-    android:text="Ouit" android:onClick="quit" />
+    android:text="Ouit" android:onClick="quit" android:textSize="25dp"/>
 
 </LinearLayout>

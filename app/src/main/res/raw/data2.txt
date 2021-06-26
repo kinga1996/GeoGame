@@ -1,4 +1,3 @@
-COUNTRY:CAPITAL:POPULATION:CURRENCY
 Italy:Rome:62:Euro
 Germany:Berlin:82:Euro
 Poland:Warsaw:38:Zloty
