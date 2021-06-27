@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GeoGame">
-        <activity android:name=".ImportData"></activity>
+        <activity android:name=".PointsActivity" />
         <activity android:name=".ParametersActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".WelcomeActivity">

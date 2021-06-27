@@ -18,7 +18,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:text="Back"
             android:onClick="back" android:layout_margin="2dp"/>
+        <Button android:id="@+id/scoresb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="Scores"
+            android:onClick="scores" android:layout_margin="2dp"/>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/player"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Player:"
+        android:textSize="12dp"
+        android:gravity="center_horizontal"
+        android:padding="2dp"/>
+    <TextView
+        android:id="@+id/points"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Your point:"
+        android:textSize="12dp"
+        android:gravity="center_horizontal"
+        android:padding="2dp"/>
 
     <TextView
         android:id="@+id/question"
@@ -36,11 +59,11 @@
         <Button
             android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:text="Button1" android:onClick="Validate1"
-            android:textSize="25dp" android:layout_margin="3dp" android:width="400px"/>
+            android:textSize="25dp" android:layout_margin="3dp" android:width="450px"/>
         <Button
             android:id="@+id/button2" android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:text="Button2" android:onClick="Validate2"
-            android:textSize="25dp" android:layout_margin="3dp" android:width="400px"/>
+            android:textSize="25dp" android:layout_margin="3dp" android:width="450px"/>
     </LinearLayout>
 
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -49,12 +72,22 @@
         <Button
             android:id="@+id/button3" android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:text="Button3" android:onClick="Validate3"
-            android:textSize="25dp" android:layout_margin="3dp" android:width="400px"/>
+            android:textSize="25dp" android:layout_margin="3dp" android:width="450px"/>
         <Button
             android:id="@+id/button4" android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:text="Button4" android:onClick="Validate4"
-            android:textSize="25dp" android:layout_margin="3dp" android:width="400px"/>
+            android:textSize="25dp" android:layout_margin="3dp" android:width="450px"/>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/checkanswer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text=" "
+        android:textSize="20dp"
+        android:gravity="center_horizontal"
+        android:padding="5dp"/>
 
 
 </LinearLayout>

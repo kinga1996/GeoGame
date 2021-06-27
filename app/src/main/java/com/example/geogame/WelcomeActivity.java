@@ -2,6 +2,7 @@ package com.example.geogame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
@@ -12,6 +13,8 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome2);
+        //SharedPreferences preferences = getSharedPreferences("r_username", 0);
+        //preferences.edit().remove("text").commit();
     }
 
     public void play(View v) {

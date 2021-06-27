@@ -2,7 +2,10 @@ package com.example.geogame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -19,33 +22,49 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button button1,button2,button3,button4,nextb,backb;
-    TextView question;
+    Button button1,button2,button3,button4,nextb,backb,scoresb;
+    TextView tv_question,tv_username, tv_checkanswer, tv_points;
     Random random = new Random();
     int value = 0;
+    static final String r_points = "0";
+    int points = 0;
+    static final String r_username = "player";
+    String username;
+
+    String[] file1 = new String[0];
+    String[] file2 = new String[0];
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getViewsReferences();
-        String[] file1 = read1();
-        String[] file2 = read2();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        points = Integer.parseInt(prefs.getString(r_points, "0"));
+        username = prefs.getString(r_username, "player");
+        tv_username.setText("Player: " + username);
+        tv_points.setText("Your points: " + String.valueOf(points));
+        file1 = read1();
+        file2 = read2();
         value = nextQuestion(file1, file2);
     }
 
-    public void next(View v, String[] file1, String[] file2) {
+    public void next(View v) {
         value = nextQuestion(file1, file2);
     }
 
-    private void  getViewsReferences(){
+    private void getViewsReferences(){
         button1 = findViewById(R.id.button1);
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
         button4 = findViewById(R.id.button4);
+        scoresb = findViewById(R.id.scoresb);
         nextb=findViewById(R.id.nextb);
         backb=findViewById(R.id.backb);
-        question=findViewById(R.id.question);
+        tv_question=findViewById(R.id.question);
+        tv_username=findViewById(R.id.player);
+        tv_checkanswer=findViewById(R.id.checkanswer);
+        tv_points=findViewById(R.id.points);
     }
 
     public String[] read1() {
@@ -98,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         int randomCorrect =  random.nextInt((lfile2-1) - 0) + 0;
         int randomButton =  random.nextInt(3 - 0) + 0;
         int randomType =  random.nextInt(5 - 0) + 0; //CAPITAL, POPULATION, CURRENCY, CONTINENT, COORDINATES
-        int randomFalse[] = new int[3]; //zle
+        int randomFalse[] = new int[3];
         do {
             randomFalse[0] = random.nextInt((lfile2 - 1) - 0) + 0;
         } while (randomFalse[0] == randomCorrect);
@@ -145,28 +164,28 @@ public class MainActivity extends AppCompatActivity {
         String AnswerFalse2 = "";
         String AnswerFalse3 = "";
         if (randomType == 0){ //CAPITOL
-            question.setText("What is the capital of " + correct_file2[0] + "?");
+            tv_question.setText("What is the capital of " + correct_file2[0] + "?");
             AnswerCorrect = correct_file2[1];
             AnswerFalse1 = false1_file2[1];
             AnswerFalse2 = false2_file2[1];
             AnswerFalse3 = false3_file2[1];
         }
         if (randomType == 1){ //POPULATION
-            question.setText("What is the population of " + correct_file2[0] + "?");
+            tv_question.setText("What is the population of " + correct_file2[0] + "?");
             AnswerCorrect = correct_file2[2];
             AnswerFalse1 = false1_file2[2];
             AnswerFalse2 = false2_file2[2];
             AnswerFalse3 = false3_file2[2];
         }
         if (randomType == 2){ //CURRENCY
-            question.setText("What is the currency of " + correct_file2[0] + "?");
+            tv_question.setText("What is the currency of " + correct_file2[0] + "?");
             AnswerCorrect = correct_file2[3];
             AnswerFalse1 = false1_file2[3];
             AnswerFalse2 = false2_file2[3];
             AnswerFalse3 = false3_file2[3];
         }
         if (randomType == 3){ //CONTINENT
-            question.setText("On which continent is " + correct_file2[0] + " located?");
+            tv_question.setText("On which continent is " + correct_file2[0] + " located?");
             AnswerCorrect = correct_file1[4];
             AnswerFalse1 = false1_file1[4];
             AnswerFalse2 = false2_file1[4];
@@ -174,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
         if (randomType == 4){ //COORDINATES
-            question.setText("What are the geographical coordinates of " + correct_file2[0] + "?");
+            tv_question.setText("What are the geographical coordinates of " + correct_file2[0] + "?");
             AnswerCorrect = correct_file1[2] + " " + correct_file1[3];
             AnswerFalse1 = false1_file1[2] + " " + false1_file1[3];
             AnswerFalse2 = false2_file1[2] + " " + false1_file1[3];
@@ -205,6 +224,59 @@ public class MainActivity extends AppCompatActivity {
             button1.setText(AnswerFalse3);
         }
         return randomButton;
+    }
+
+    public void Validate1(View v){
+        if (value == 0) {
+            tv_checkanswer.setText("Good!");
+            points = points + 1;
+            tv_points.setText("Your points: " + String.valueOf(points));
+        }
+        else tv_checkanswer.setText("Wrong!");
+        nextQuestion(file1, file2);
+    }
+
+    public void Validate2(View v){
+        if (value == 1) {
+            tv_checkanswer.setText("Good!");
+            points = points + 1;
+            tv_points.setText("Your points: " + String.valueOf(points));
+        }
+        else tv_checkanswer.setText("Wrong!");
+        nextQuestion(file1, file2);
+    }
+
+    public void Validate3(View v){
+        if (value == 2) {
+            tv_checkanswer.setText("Good!");
+            points = points + 1;
+            tv_points.setText("Your points: " + String.valueOf(points));
+        }
+        else tv_checkanswer.setText("Wrong!");
+        nextQuestion(file1, file2);
+    }
+
+    public void Validate4(View v){
+        if (value == 3) {
+            tv_checkanswer.setText("Good!");
+            points = points + 1;
+            tv_points.setText("Your points: " + String.valueOf(points));
+        }
+        else tv_checkanswer.setText("Wrong!");
+        nextQuestion(file1, file2);
+    }
+
+    public void scores(View v) {
+        Intent a = new Intent(MainActivity.this, PointsActivity.class);
+        startActivity(a);
+    }
+
+    public void back(View v){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor ed = prefs.edit();
+        ed.putString(String.valueOf(r_points), String.valueOf(points));
+        ed.commit();
+        this.finish();
     }
 
     
